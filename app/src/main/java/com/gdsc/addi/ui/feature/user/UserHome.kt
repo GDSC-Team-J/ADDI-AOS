@@ -22,42 +22,57 @@ import com.gdsc.addi.ui.theme.AddiDesignSystem
 import com.gdsc.addi.ui.theme.AddiTheme
 
 @Composable
-fun UserHomeScreen() {
+fun UserHome() {
     Column(
         modifier = Modifier
             .fillMaxSize(),
         verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Column {
-            Spacer(Modifier.size(100.dp))
-            Text(
-                text = stringResource(id = R.string.user_home_title),
-                style = AddiDesignSystem.typography.title,
-                color = AddiDesignSystem.colors.black,
-                modifier = Modifier.align(Alignment.CenterHorizontally)
-            )
-            Spacer(Modifier.size(58.dp))
-            Icon(
-                painter = painterResource(id = R.drawable.ic_logo),
-                contentDescription = null,
-                tint = AddiDesignSystem.colors.black,
-                modifier = Modifier.align(Alignment.CenterHorizontally)
-            )
-        }
-
         Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp)
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            AddiButton(
-                onClick = { /*TODO*/ },
-            ) {
-                Text(text = stringResource(id = R.string.user_home_button))
-            }
-            Spacer(Modifier.size(40.dp))
+            Spacer(Modifier.size(100.dp))
+            UserHomeTitle()
+            Spacer(Modifier.size(58.dp))
+            UserHomeLogo()
         }
+        UserHomeButtonSection()
+    }
+}
+
+@Composable
+fun UserHomeTitle() {
+    Text(
+        text = stringResource(id = R.string.user_home_title),
+        style = AddiDesignSystem.typography.title,
+        color = AddiDesignSystem.colors.black,
+    )
+}
+
+@Composable
+fun UserHomeLogo() {
+    Icon(
+        painter = painterResource(id = R.drawable.ic_logo),
+        contentDescription = null,
+        tint = AddiDesignSystem.colors.black,
+    )
+}
+
+
+@Composable
+fun UserHomeButtonSection() {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp)
+    ) {
+        AddiButton(
+            onClick = { /*TODO*/ },
+        ) {
+            Text(text = stringResource(id = R.string.user_home_button))
+        }
+        Spacer(Modifier.size(40.dp))
     }
 }
 
@@ -65,6 +80,6 @@ fun UserHomeScreen() {
 @Composable
 fun UserHomeScreenPreview() {
     AddiTheme {
-        UserHomeScreen()
+        UserHome()
     }
 }
