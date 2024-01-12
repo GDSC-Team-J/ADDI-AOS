@@ -26,19 +26,19 @@ fun RecordDone(type: RecordType) {
         verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        RecordDoneTitle(type)
-        RecordDoneButton(type)
+        RecordDoneTitle(type.doneTitle)
+        RecordDoneButton(type.doneButton)
     }
 }
 
 @Composable
 fun RecordDoneTitle(
-    type: RecordType
+    title: String
 ) {
     Column {
         Spacer(Modifier.size(250.dp))
         Text(
-            text = type.done,
+            text = title,
             style = AddiDesignSystem.typography.title,
             color = AddiDesignSystem.colors.black,
             modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -49,7 +49,7 @@ fun RecordDoneTitle(
 
 @Composable
 fun RecordDoneButton(
-    type: RecordType
+    content: String
 ) {
     Column(
         modifier = Modifier
@@ -59,7 +59,7 @@ fun RecordDoneButton(
         AddiButton(
             onClick = { /*TODO*/ },
         ) {
-            Text(text = type.button)
+            Text(text = content)
         }
         Spacer(Modifier.size(40.dp))
     }

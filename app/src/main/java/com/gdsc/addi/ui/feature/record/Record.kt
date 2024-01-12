@@ -37,7 +37,7 @@ fun Record(
             /** TODO state 분리하기 */
             RecordNextButton(
                 onClickNext = {},
-                content = type.button
+                content = type.nextButton
             )
             Spacer(modifier = Modifier.size(40.dp))
         }
