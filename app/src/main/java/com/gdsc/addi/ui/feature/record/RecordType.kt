@@ -30,7 +30,7 @@ enum class RecordType {
         @Composable
         @ReadOnlyComposable
         get() = when (this) {
-            USER -> stringResource(id = R.string.user_record_done_button)
-            GUARDIAN -> stringResource(id = R.string.guardian_record_done_button)
+            USER -> stringResource(id = R.string.user_record_next)
+            GUARDIAN -> stringResource(id = R.string.guardian_record_submit)
         }
 }

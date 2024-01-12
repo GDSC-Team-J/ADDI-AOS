@@ -31,12 +31,13 @@ fun Record(
         verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        RecordTitle(type)
+        RecordTitle(type.title)
         RecordButton()
         Column {
             /** TODO state 분리하기 */
             RecordNextButton(
-                onClickNext = {}
+                onClickNext = {},
+                content = type.button
             )
             Spacer(modifier = Modifier.size(40.dp))
         }
@@ -44,11 +45,13 @@ fun Record(
 }
 
 @Composable
-fun RecordTitle(type: RecordType) {
+fun RecordTitle(
+    title: String
+) {
     Column {
         Spacer(Modifier.size(100.dp))
         Text(
-            text = type.title,
+            text = title,
             style = AddiDesignSystem.typography.title,
             color = AddiDesignSystem.colors.black,
             modifier = Modifier.align(Alignment.CenterHorizontally)
@@ -73,14 +76,15 @@ fun RecordButton() {
 
 @Composable
 fun RecordNextButton(
-    onClickNext: () -> Unit
+    onClickNext: () -> Unit,
+    content: String
 ) {
     Box(modifier = Modifier.padding(horizontal = 16.dp)) {
         AddiButton(
             onClick = onClickNext,
             modifier = Modifier.padding(horizontal = 16.dp)
         ) {
-            Text(text = stringResource(id = R.string.guardian_code_enter))
+            Text(text = content)
         }
     }
 }
