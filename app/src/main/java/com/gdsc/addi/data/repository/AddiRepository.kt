@@ -5,7 +5,7 @@ import com.gdsc.addi.data.source.LocalDataSource
 import com.gdsc.addi.ui.feature.splash.LoginState
 import javax.inject.Inject
 
-class AuthRepository @Inject constructor(
+class AddiRepository @Inject constructor(
     private val addiService: AddiService,
     private val localDataSource: LocalDataSource
 ) {

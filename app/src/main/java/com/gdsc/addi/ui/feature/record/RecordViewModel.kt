@@ -2,7 +2,7 @@ package com.gdsc.addi.ui.feature.record
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.gdsc.addi.data.repository.AuthRepository
+import com.gdsc.addi.data.repository.AddiRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RecordViewModel @Inject constructor(
-    repository: AuthRepository
+    repository: AddiRepository
 ) : ViewModel() {
     private val _questions = MutableStateFlow<List<String>>(emptyList())
     val questions = _questions.asStateFlow()
