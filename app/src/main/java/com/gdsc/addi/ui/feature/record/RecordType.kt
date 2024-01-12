@@ -1,4 +1,4 @@
-package com.gdsc.addi.ui
+package com.gdsc.addi.ui.feature.record
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
