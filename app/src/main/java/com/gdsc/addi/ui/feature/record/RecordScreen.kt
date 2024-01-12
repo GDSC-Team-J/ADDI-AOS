@@ -1,4 +1,4 @@
-package com.gdsc.addi.ui.feature.user
+package com.gdsc.addi.ui.feature.record
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -21,7 +21,7 @@ import com.gdsc.addi.ui.theme.AddiDesignSystem
 import com.gdsc.addi.ui.theme.AddiTheme
 
 @Composable
-fun UserRecordScreen(
+fun RecordScreen(
     type: RecordType
 ) {
     Column(
@@ -56,8 +56,8 @@ fun UserRecordScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun UserRecordScreenPreview() {
+fun RecordScreenPreview() {
     AddiTheme {
-        UserRecordScreen(RecordType.GUARDIAN)
+        RecordScreen(RecordType.GUARDIAN)
     }
 }
