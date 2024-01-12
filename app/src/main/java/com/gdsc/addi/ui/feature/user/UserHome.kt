@@ -22,7 +22,9 @@ import com.gdsc.addi.ui.theme.AddiDesignSystem
 import com.gdsc.addi.ui.theme.AddiTheme
 
 @Composable
-fun UserHome() {
+fun UserHome(
+
+) {
     Column(
         modifier = Modifier
             .fillMaxSize(),
@@ -37,7 +39,9 @@ fun UserHome() {
             Spacer(Modifier.size(58.dp))
             UserHomeLogo()
         }
-        UserHomeButtonSection()
+        UserHomeButton(
+            {}
+        )
     }
 }
 
@@ -61,7 +65,9 @@ fun UserHomeLogo() {
 
 
 @Composable
-fun UserHomeButtonSection() {
+fun UserHomeButton(
+    onClickRecord: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -78,7 +84,7 @@ fun UserHomeButtonSection() {
 
 @Preview(showBackground = true)
 @Composable
-fun UserHomeScreenPreview() {
+fun UserHomePreview() {
     AddiTheme {
         UserHome()
     }

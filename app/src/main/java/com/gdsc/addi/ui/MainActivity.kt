@@ -6,6 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import com.gdsc.addi.ui.feature.enter.EnterScreen
 import com.gdsc.addi.ui.theme.AddiTheme
+import com.gdsc.addi.ui.utils.UiEvent
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -16,10 +17,21 @@ class MainActivity : ComponentActivity() {
             AddiTheme {
                 EnterScreen(
                     onClickGuardianEnter = ::goToGuardian,
-                    onClickUserEnter = ::goToUser
+                    onClickUserEnter = ::onUserEvent,
                 )
             }
         }
+    }
+
+    private fun onUserEvent(
+        uiEvent: UiEvent
+    ) {
+        when (uiEvent) {
+            UiEvent.IDLE -> {}
+            UiEvent.SUCCESS -> goToUser()
+            UiEvent.ERROR -> {}
+        }
+        finish()
     }
 
     private fun goToGuardian() {

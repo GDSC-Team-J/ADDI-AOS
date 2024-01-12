@@ -1,4 +1,4 @@
-package com.gdsc.addi.data.entity
+package com.gdsc.addi.data.entity.response
 
 import kotlinx.serialization.Serializable
 
