@@ -14,7 +14,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             AddiTheme {
                 // A surface container using the 'background' color from the theme
-                EnterScreen()
+                //EnterScreen()
             }
         }
     }
