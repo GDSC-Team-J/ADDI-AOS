@@ -20,39 +20,49 @@ import com.gdsc.addi.ui.theme.AddiDesignSystem
 import com.gdsc.addi.ui.theme.AddiTheme
 
 @Composable
-fun RecordDone(
-    type: RecordType
-) {
+fun RecordDone(type: RecordType) {
     Column(
         modifier = Modifier
             .fillMaxSize(),
         verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        RecordDoneTitle(type)
+        RecordDoneButton(type)
+    }
+}
 
-        Column {
-            Spacer(Modifier.size(250.dp))
-            Text(
-                text = type.done,
-                style = AddiDesignSystem.typography.title,
-                color = AddiDesignSystem.colors.black,
-                modifier = Modifier.align(Alignment.CenterHorizontally),
-                textAlign = TextAlign.Center
-            )
-        }
+@Composable
+fun RecordDoneTitle(
+    type: RecordType
+) {
+    Column {
+        Spacer(Modifier.size(250.dp))
+        Text(
+            text = type.done,
+            style = AddiDesignSystem.typography.title,
+            color = AddiDesignSystem.colors.black,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+            textAlign = TextAlign.Center
+        )
+    }
+}
 
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp)
+@Composable
+fun RecordDoneButton(
+    type: RecordType
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp)
+    ) {
+        AddiButton(
+            onClick = { /*TODO*/ },
         ) {
-            AddiButton(
-                onClick = { /*TODO*/ },
-            ) {
-                Text(text = type.button)
-            }
-            Spacer(Modifier.size(40.dp))
+            Text(text = type.button)
         }
+        Spacer(Modifier.size(40.dp))
     }
 }
 
