@@ -22,45 +22,68 @@ import com.gdsc.addi.ui.theme.AddiDesignSystem
 import com.gdsc.addi.ui.theme.AddiTheme
 
 @Composable
-fun EnterScreen() {
+fun EnterScreen(
+    onClickGuardianEnter: () -> Unit,
+    onClickUserEnter: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize(),
         verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Column {
-            Spacer(modifier = Modifier.size(120.dp))
-            Icon(
-                painter = painterResource(id = R.drawable.ic_logo),
-                contentDescription = null,
-                tint = AddiDesignSystem.colors.black,
-                modifier = Modifier.align(Alignment.CenterHorizontally)
-            )
-            Text(
-                text = stringResource(id = R.string.enter_title),
-                style = AddiDesignSystem.typography.button,
-                color = AddiDesignSystem.colors.black,
-                modifier = Modifier.align(Alignment.CenterHorizontally)
-            )
-        }
+        EnterLogo()
+        EnterButtons(
+            onClickGuardianEnter = onClickGuardianEnter,
+            onClickUserEnter = onClickUserEnter
+        )
+    }
+}
 
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp)
+@Composable
+fun EnterLogo() {
+    Column {
+        Spacer(modifier = Modifier.size(120.dp))
+        Icon(
+            painter = painterResource(id = R.drawable.ic_logo),
+            contentDescription = null,
+            tint = AddiDesignSystem.colors.black,
+            modifier = Modifier.align(Alignment.CenterHorizontally)
+        )
+        Spacer(modifier = Modifier.size(20.dp))
+        Text(
+            text = stringResource(id = R.string.enter_title),
+            style = AddiDesignSystem.typography.button,
+            color = AddiDesignSystem.colors.black,
+            modifier = Modifier.align(Alignment.CenterHorizontally)
+        )
+    }
+}
+
+@Composable
+fun EnterButtons(
+    onClickGuardianEnter: () -> Unit,
+    onClickUserEnter: () -> Unit
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp)
+    ) {
+        AddiButton(
+            onClick = onClickGuardianEnter
         ) {
-            AddiButton(onClick = { /*TODO*/ }) {
-                Text(text = stringResource(id = R.string.enter_guardian))
-            }
-
-            Spacer(modifier = Modifier.size(16.dp))
-
-            AddiButton(onClick = { /*TODO*/ }) {
-                Text(text = stringResource(id = R.string.enter_user))
-            }
-            Spacer(modifier = Modifier.size(40.dp))
+            Text(text = stringResource(id = R.string.enter_guardian))
         }
+
+        Spacer(modifier = Modifier.size(16.dp))
+
+        AddiButton(
+            onClick = onClickUserEnter
+        ) {
+            Text(text = stringResource(id = R.string.enter_user))
+        }
+        Spacer(modifier = Modifier.size(40.dp))
     }
 }
 
@@ -68,6 +91,6 @@ fun EnterScreen() {
 @Composable
 fun EnterScreenPreview() {
     AddiTheme {
-        EnterScreen()
+        EnterScreen({}, {})
     }
 }
