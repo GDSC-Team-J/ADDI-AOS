@@ -12,6 +12,7 @@ val White = Color(0xFFFFFFFF)
 val GreenButton = Color(0xFF52AC41)
 val GreenBackground = Color(0xFF99E9AF)
 val GreenRecord = Color(0xFFBEF5B3)
+val GrayBorder = Color(0xFF323232)
 
 @Stable
 class AddiColorScheme(
@@ -19,7 +20,8 @@ class AddiColorScheme(
     white: Color,
     buttonGreen: Color,
     backgroundGreen: Color,
-    recordGreen: Color
+    recordGreen: Color,
+    grayBorder: Color
 ) {
     var black by mutableStateOf(black, structuralEqualityPolicy())
         internal set
@@ -32,18 +34,23 @@ class AddiColorScheme(
     var recordGreen by mutableStateOf(recordGreen, structuralEqualityPolicy())
         internal set
 
+    var grayBorder by mutableStateOf(grayBorder, structuralEqualityPolicy())
+        internal set
+
     fun copy(
         black: Color,
         white: Color,
         buttonGreen: Color,
         backgroundGreen: Color,
-        recordGreen: Color
+        recordGreen: Color,
+        grayBorder: Color
     ) = AddiColorScheme(
         black = black,
         white = white,
         buttonGreen = buttonGreen,
         backgroundGreen = backgroundGreen,
-        recordGreen = recordGreen
+        recordGreen = recordGreen,
+        grayBorder = grayBorder
     )
 
 }
@@ -53,5 +60,6 @@ fun addiDefaultColorScheme() = AddiColorScheme(
     white = White,
     buttonGreen = GreenButton,
     backgroundGreen = GreenBackground,
-    recordGreen = GreenRecord
+    recordGreen = GreenRecord,
+    grayBorder = GrayBorder
 )
