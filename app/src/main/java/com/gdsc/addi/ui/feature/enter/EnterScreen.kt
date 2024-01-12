@@ -50,18 +50,13 @@ fun EnterScreen() {
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp)
         ) {
-            AddiButton(
-                onClick = { /*TODO*/ },
-
-                ) {
+            AddiButton(onClick = { /*TODO*/ }) {
                 Text(text = stringResource(id = R.string.enter_guardian))
             }
 
             Spacer(modifier = Modifier.size(16.dp))
 
-            AddiButton(
-                onClick = { /*TODO*/ },
-            ) {
+            AddiButton(onClick = { /*TODO*/ }) {
                 Text(text = stringResource(id = R.string.enter_user))
             }
             Spacer(modifier = Modifier.size(40.dp))
