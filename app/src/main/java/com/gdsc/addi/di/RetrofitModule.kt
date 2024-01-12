@@ -28,7 +28,7 @@ object RetrofitModule {
     private val json = Json { ignoreUnknownKeys = true }
     private const val CONTENT_TYPE = "Content-Type"
     private const val APPLICATION_JSON = "application/json"
-    private const val MAC_ADDRESS = "mac address"
+    private const val MAC_ADDRESS = "macAddress"
     private const val SERVER_ERROR = 500
 
     @Singleton
@@ -47,7 +47,7 @@ object RetrofitModule {
                 .newBuilder()
                 .addHeader(CONTENT_TYPE, APPLICATION_JSON)
                 /** TODO 로컬 mac address값 추가하기 localTokenDataSource.macAddress */
-                .addHeader(MAC_ADDRESS, "")
+                .addHeader(MAC_ADDRESS, "1")
                 .build()
         )
         when (response.code) {

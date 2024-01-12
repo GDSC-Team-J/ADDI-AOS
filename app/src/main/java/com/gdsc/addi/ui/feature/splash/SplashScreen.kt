@@ -21,6 +21,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
 import com.gdsc.addi.R
 import com.gdsc.addi.ui.theme.AddiDesignSystem
@@ -28,9 +29,11 @@ import com.gdsc.addi.ui.theme.AddiTheme
 
 @Composable
 fun SplashScreen(
-    intent: () -> Unit
+    viewModel: SplashViewModel = hiltViewModel(),
+    onEvent: (LoginState) -> Unit,
 ) {
-    val check = true
+    viewModel.checkUserState()
+
     val alpha: Float by animateFloatAsState(
         targetValue = if (LocalLifecycleOwner.current.lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)) 1f else 0f,
         animationSpec = tween(
@@ -41,11 +44,13 @@ fun SplashScreen(
     )
 
     LaunchedEffect(alpha) {
-        if (alpha >= 1f && check) {
-            intent()
+        if (alpha >= 1f) {
+            viewModel.loginState.collect { state ->
+                onEvent(state)
+            }
         }
     }
-    
+
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -70,6 +75,6 @@ fun SplashScreen(
 @Composable
 fun SplashScreenPreview() {
     AddiTheme {
-        SplashScreen({})
+        //SplashScreen({})
     }
 }
