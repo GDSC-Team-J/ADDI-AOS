@@ -3,10 +3,7 @@ package com.gdsc.addi
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Surface
-import androidx.compose.ui.Modifier
-import com.gdsc.addi.ui.theme.AddiDesignSystem
+import com.gdsc.addi.ui.feature.enter.EnterScreen
 import com.gdsc.addi.ui.theme.AddiTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -17,12 +14,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             AddiTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = AddiDesignSystem.colors.backgroundGreen
-                ) {
-
-                }
+                EnterScreen()
             }
         }
     }

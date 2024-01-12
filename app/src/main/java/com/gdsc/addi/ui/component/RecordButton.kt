@@ -1,8 +1,9 @@
 package com.gdsc.addi.ui.component
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
@@ -16,17 +17,18 @@ import androidx.compose.ui.unit.dp
 import com.gdsc.addi.ui.theme.AddiDesignSystem
 
 @Composable
-fun AddiButton(
+fun RecordButton(
     modifier: Modifier = Modifier,
     buttonColors: ButtonColors = ButtonDefaults.buttonColors(
-        containerColor = AddiDesignSystem.colors.buttonGreen,
-        contentColor = AddiDesignSystem.colors.white
+        containerColor = AddiDesignSystem.colors.recordGreen,
+        contentColor = AddiDesignSystem.colors.black
     ),
-    shape: Shape = RoundedCornerShape(8.dp),
+    shape: Shape = CircleShape,
     onClick: () -> Unit,
     content: @Composable RowScope.() -> Unit
 ) = Button(
-    modifier = Modifier.fillMaxWidth(),
+    modifier = modifier.aspectRatio(1f),
+    border = BorderStroke(3.dp, AddiDesignSystem.colors.grayStroke),
     colors = buttonColors,
     shape = shape,
     onClick = onClick
@@ -38,8 +40,8 @@ fun AddiButton(
 
 @Preview
 @Composable
-fun AddiButtonPreview() {
-    AddiButton(
+fun RecordButtonPreview() {
+    RecordButton(
         onClick = {}
     ) {
         Text(text = "hello")
