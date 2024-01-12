@@ -19,6 +19,9 @@ class AuthRepository @Inject constructor(
             response.invitationCode
         }
 
+    suspend fun postGuardianSignup(inviteCode: String): Result<Unit> =
+        kotlin.runCatching { addiService.postGuardianSignup(inviteCode) }
+
     fun setInviteCode(inviteCode: String) {
         localDataSource.inviteCode = inviteCode
     }

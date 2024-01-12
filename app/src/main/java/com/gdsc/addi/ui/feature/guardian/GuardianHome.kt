@@ -1,4 +1,4 @@
-package com.gdsc.addi.ui.feature.user
+package com.gdsc.addi.ui.feature.guardian
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -7,12 +7,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -22,48 +19,44 @@ import com.gdsc.addi.ui.theme.AddiDesignSystem
 import com.gdsc.addi.ui.theme.AddiTheme
 
 @Composable
-fun UserHome(
-    onClickRecord: () -> Unit
+fun GuardianHome(
+
 ) {
     Column(
         modifier = Modifier
             .fillMaxSize(),
         verticalArrangement = Arrangement.SpaceBetween,
-        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
+        Column {
             Spacer(Modifier.size(100.dp))
-            UserHomeTitle()
+            GuardianHomeTitle()
             Spacer(Modifier.size(58.dp))
-            UserHomeLogo()
+            GuardianHomeGraph()
         }
-        UserHomeButton(onClickRecord)
+        GuardianHomeButton(
+            onClickRecord = {}
+        )
     }
 }
 
 @Composable
-fun UserHomeTitle() {
+fun GuardianHomeTitle() {
     Text(
-        text = stringResource(id = R.string.user_home_title),
+        text = stringResource(id = R.string.guardian_home_title),
         style = AddiDesignSystem.typography.title,
         color = AddiDesignSystem.colors.black,
+        modifier = Modifier.padding(horizontal = 16.dp)
     )
 }
 
 @Composable
-fun UserHomeLogo() {
-    Icon(
-        painter = painterResource(id = R.drawable.ic_logo),
-        contentDescription = null,
-        tint = AddiDesignSystem.colors.black,
-    )
+fun GuardianHomeGraph() {
+    /** TODO graph */
 }
 
 
 @Composable
-fun UserHomeButton(
+fun GuardianHomeButton(
     onClickRecord: () -> Unit
 ) {
     Column(
@@ -72,9 +65,9 @@ fun UserHomeButton(
             .padding(horizontal = 16.dp)
     ) {
         AddiButton(
-            onClick = onClickRecord,
+            onClick = { /*TODO*/ },
         ) {
-            Text(text = stringResource(id = R.string.user_home_button))
+            Text(text = stringResource(id = R.string.guardian_home_voice_record))
         }
         Spacer(Modifier.size(40.dp))
     }
@@ -82,8 +75,8 @@ fun UserHomeButton(
 
 @Preview(showBackground = true)
 @Composable
-fun UserHomePreview() {
+fun GuardianHomePreview() {
     AddiTheme {
-        UserHome({})
+        GuardianHome()
     }
 }

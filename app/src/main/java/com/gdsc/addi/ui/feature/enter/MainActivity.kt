@@ -1,10 +1,11 @@
-package com.gdsc.addi.ui
+package com.gdsc.addi.ui.feature.enter
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.gdsc.addi.ui.feature.enter.EnterScreen
+import com.gdsc.addi.ui.feature.guardian.GuardianCodeActivity
+import com.gdsc.addi.ui.feature.user.UserActivity
 import com.gdsc.addi.ui.theme.AddiTheme
 import com.gdsc.addi.ui.utils.UiEvent
 import dagger.hilt.android.AndroidEntryPoint
@@ -31,14 +32,15 @@ class MainActivity : ComponentActivity() {
             UiEvent.SUCCESS -> goToUser()
             UiEvent.ERROR -> {}
         }
-        finish()
     }
 
     private fun goToGuardian() {
-        startActivity(Intent(this, GuardianActivity::class.java))
+        startActivity(Intent(this, GuardianCodeActivity::class.java))
+        finish()
     }
 
     private fun goToUser() {
         startActivity(Intent(this, UserActivity::class.java))
+        finish()
     }
 }

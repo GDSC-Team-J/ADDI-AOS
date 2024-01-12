@@ -1,13 +1,13 @@
-package com.gdsc.addi.ui
+package com.gdsc.addi.ui.feature.splash
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import com.gdsc.addi.ui.feature.splash.LoginState
-import com.gdsc.addi.ui.feature.splash.SplashScreen
-import com.gdsc.addi.ui.feature.splash.SplashViewModel
+import com.gdsc.addi.ui.feature.user.UserActivity
+import com.gdsc.addi.ui.feature.enter.MainActivity
+import com.gdsc.addi.ui.feature.guardian.GuardianCodeActivity
 import com.gdsc.addi.ui.theme.AddiTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -33,9 +33,8 @@ class SplashActivity : ComponentActivity() {
         when (loginState) {
             LoginState.NONE -> goToMain()
             LoginState.GUARDIAN -> goToGuardian()
-            LoginState.USER -> goToGuardian()
+            LoginState.USER -> goToUser()
         }
-        finish()
     }
 
     private fun goToMain() {
@@ -44,7 +43,7 @@ class SplashActivity : ComponentActivity() {
     }
 
     private fun goToGuardian() {
-        startActivity(Intent(this, GuardianActivity::class.java))
+        startActivity(Intent(this, GuardianCodeActivity::class.java))
         finish()
     }
 
