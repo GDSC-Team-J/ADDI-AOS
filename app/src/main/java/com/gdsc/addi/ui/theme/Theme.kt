@@ -11,6 +11,7 @@ import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
@@ -63,7 +64,15 @@ fun AddiTheme(
         ) {
             Box(
                 modifier = with(Modifier) {
-                    fillMaxSize().background(AddiDesignSystem.colors.backgroundGreen)
+                    fillMaxSize()
+                        .background(
+                            brush = Brush.verticalGradient(
+                                listOf(
+                                    AddiDesignSystem.colors.backgroundGreen,
+                                    AddiDesignSystem.colors.white
+                                ),
+                            )
+                        )
                 }
             ) {
                 content()

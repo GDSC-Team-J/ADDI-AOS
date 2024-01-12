@@ -4,6 +4,7 @@
     <!-- enter -->
     <string name="enter_guardian">보호자 입장하기</string>
     <string name="enter_user">사용자 입장하기</string>
+    <string name="enter_title">당신의 감정 도우미 : 아띠</string>
 
     <!--user -->
     <string name="user_home_title">오늘 하루를 기록해 보세요</string>
