@@ -28,7 +28,7 @@ fun RecordButton(
     content: @Composable RowScope.() -> Unit
 ) = Button(
     modifier = modifier.aspectRatio(1f),
-    border = BorderStroke(3.dp, AddiDesignSystem.colors.grayBorder),
+    border = BorderStroke(3.dp, AddiDesignSystem.colors.grayStroke),
     colors = buttonColors,
     shape = shape,
     onClick = onClick
