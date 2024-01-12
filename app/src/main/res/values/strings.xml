@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">아띠</string>
 
+    <!-- error -->
+    <string name="sever_500_error_msg">예상치 못한 에러 발생!</string>
+    <string name="network_error_msg">네트워크를 확인해 주세요</string>
+
     <!-- enter -->
     <string name="enter_guardian">보호자 입장하기</string>
     <string name="enter_user">사용자 입장하기</string>
