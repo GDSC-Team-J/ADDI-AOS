@@ -17,4 +17,20 @@ enum class RecordType {
             USER -> stringResource(id = R.string.user_record_title)
             GUARDIAN -> stringResource(id = R.string.guardian_record_title)
         }
+
+    val done: String
+        @Composable
+        @ReadOnlyComposable
+        get() = when (this) {
+            USER -> stringResource(id = R.string.user_record_done_title)
+            GUARDIAN -> stringResource(id = R.string.guardian_record_done_title)
+        }
+
+    val button: String
+        @Composable
+        @ReadOnlyComposable
+        get() = when (this) {
+            USER -> stringResource(id = R.string.user_record_done_button)
+            GUARDIAN -> stringResource(id = R.string.guardian_record_done_button)
+        }
 }
