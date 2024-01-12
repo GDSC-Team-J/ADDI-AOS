@@ -21,7 +21,7 @@ import com.gdsc.addi.ui.theme.AddiDesignSystem
 import com.gdsc.addi.ui.theme.AddiTheme
 
 @Composable
-fun RecordScreen(
+fun Record(
     type: RecordType
 ) {
     Column(
@@ -58,6 +58,6 @@ fun RecordScreen(
 @Composable
 fun RecordScreenPreview() {
     AddiTheme {
-        RecordScreen(RecordType.GUARDIAN)
+        Record(RecordType.GUARDIAN)
     }
 }
