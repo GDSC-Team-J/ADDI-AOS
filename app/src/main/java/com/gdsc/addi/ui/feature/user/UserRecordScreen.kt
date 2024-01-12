@@ -15,12 +15,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gdsc.addi.R
+import com.gdsc.addi.ui.RecordType
 import com.gdsc.addi.ui.component.RecordButton
 import com.gdsc.addi.ui.theme.AddiDesignSystem
 import com.gdsc.addi.ui.theme.AddiTheme
 
 @Composable
-fun UserRecordScreen() {
+fun UserRecordScreen(
+    type: RecordType
+) {
     Column(
         modifier = Modifier
             .fillMaxSize(),
@@ -30,7 +33,7 @@ fun UserRecordScreen() {
         Column {
             Spacer(Modifier.size(100.dp))
             Text(
-                text = stringResource(id = R.string.user_record_title),
+                text = type.title,
                 style = AddiDesignSystem.typography.title,
                 color = AddiDesignSystem.colors.black,
                 modifier = Modifier.align(Alignment.CenterHorizontally)
@@ -55,6 +58,6 @@ fun UserRecordScreen() {
 @Composable
 fun UserRecordScreenPreview() {
     AddiTheme {
-        UserRecordScreen()
+        UserRecordScreen(RecordType.GUARDIAN)
     }
 }
