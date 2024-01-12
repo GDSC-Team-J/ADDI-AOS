@@ -24,11 +24,9 @@ class MainActivity : ComponentActivity() {
 
     private fun goToGuardian() {
         startActivity(Intent(this, GuardianActivity::class.java))
-        finish()
     }
 
     private fun goToUser() {
         startActivity(Intent(this, UserActivity::class.java))
-        finish()
     }
 }
