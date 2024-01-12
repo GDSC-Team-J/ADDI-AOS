@@ -14,7 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.gdsc.addi.ui.RecordType
 import com.gdsc.addi.ui.component.AddiButton
 import com.gdsc.addi.ui.theme.AddiDesignSystem
 import com.gdsc.addi.ui.theme.AddiTheme
@@ -27,19 +26,19 @@ fun RecordDone(type: RecordType) {
         verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        RecordDoneTitle(type)
-        RecordDoneButton(type)
+        RecordDoneTitle(type.doneTitle)
+        RecordDoneButton(type.doneButton)
     }
 }
 
 @Composable
 fun RecordDoneTitle(
-    type: RecordType
+    title: String
 ) {
     Column {
         Spacer(Modifier.size(250.dp))
         Text(
-            text = type.done,
+            text = title,
             style = AddiDesignSystem.typography.title,
             color = AddiDesignSystem.colors.black,
             modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -50,7 +49,7 @@ fun RecordDoneTitle(
 
 @Composable
 fun RecordDoneButton(
-    type: RecordType
+    content: String
 ) {
     Column(
         modifier = Modifier
@@ -60,7 +59,7 @@ fun RecordDoneButton(
         AddiButton(
             onClick = { /*TODO*/ },
         ) {
-            Text(text = type.button)
+            Text(text = content)
         }
         Spacer(Modifier.size(40.dp))
     }
