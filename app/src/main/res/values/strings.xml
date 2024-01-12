@@ -9,6 +9,7 @@
     <!--user -->
     <string name="user_home_title">오늘 하루를 기록해 보세요</string>
     <string name="user_home_button">기록하러 가기</string>
+
     <string name="user_record_title">오늘 하루는 어떠셨나요?</string>
     <string name="user_record_press">눌러서\n기록하기</string>
     <string name="user_record_stop">기록\n중단하기</string>
@@ -17,8 +18,12 @@
     <string name="user_record_done_button">처음으로</string>
 
     <!-- guardian -->
+    <string name="guardian_code_title">초대 코드를 입력해 주세요</string>
+    <string name="guardian_code_enter">입장하기</string>
+
     <string name="guardian_home_title">%s님의\n감정 리포트입니다</string>
     <string name="guardian_home_voice_record">목소리 녹음하기</string>
+
     <string name="guardian_record_title">목소리를 녹음해 주세요</string>
     <string name="guardian_record_press">눌러서\n기록하기</string>
     <string name="guardian_record_stop">기록\n중단하기</string>
