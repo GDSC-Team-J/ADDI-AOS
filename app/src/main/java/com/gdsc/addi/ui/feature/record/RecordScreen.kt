@@ -19,7 +19,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.gdsc.addi.R
 import com.gdsc.addi.ui.component.AddiButton
 import com.gdsc.addi.ui.component.RecordButton
@@ -29,7 +28,8 @@ import com.gdsc.addi.ui.theme.AddiTheme
 @Composable
 fun RecordScreen(
     onRecord: (Boolean) -> Unit,
-    viewModel: RecordViewModel = hiltViewModel()
+    viewModel: RecordViewModel,
+    onClick: () -> Unit
 ) {
     viewModel.getQuestions()
     val questions = viewModel.questions.collectAsState()
@@ -50,7 +50,8 @@ fun RecordScreen(
                         currentQuestionIndex.value = nextIndex
                     } else {
                         // 마지막 질문까지 표시되었을 때
-//                        RecordDone()
+//                        viewModel.postRecord() // postRecord 호출
+                        onClick()
                         Log.d("asdf", "끝")
                     }
                 },
@@ -76,6 +77,7 @@ fun RecordTitle(
     }
 }
 
+/** 현재는 녹음 전이거나 녹음중일때도 다음으로 버튼이 활성화되어있음. 다음에 막아야함 */
 @Composable
 fun RecordButton(
     onRecord: (Boolean) -> Unit
@@ -123,8 +125,8 @@ fun RecordNextButton(
 @Composable
 fun RecordScreenPreview() {
     AddiTheme {
-        RecordScreen(
-            {}
-        )
+//        RecordScreen(
+//            {}
+//        )
     }
 }

@@ -20,6 +20,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import java.util.concurrent.TimeUnit
+import javax.inject.Qualifier
 import javax.inject.Singleton
 
 @Module
@@ -31,6 +32,11 @@ object RetrofitModule {
     private const val MAC_ADDRESS = "macAddress"
     private const val SERVER_ERROR = 500
 
+    @Qualifier
+    @Retention(AnnotationRetention.BINARY)
+    annotation class NormalType
+
+    @NormalType
     @Singleton
     @Provides
     fun providesAddiInterceptor(
@@ -62,7 +68,8 @@ object RetrofitModule {
 
     @Singleton
     @Provides
-    fun providesAddiOkHttpClient(interceptor: Interceptor): OkHttpClient =
+    @NormalType
+    fun providesAddiOkHttpClient(@NormalType interceptor: Interceptor): OkHttpClient =
         OkHttpClient.Builder()
             .connectTimeout(10, TimeUnit.SECONDS)
             .writeTimeout(10, TimeUnit.SECONDS)
@@ -77,7 +84,8 @@ object RetrofitModule {
 
     @Singleton
     @Provides
-    fun providesAddiRetrofit(okHttpClient: OkHttpClient): Retrofit =
+    @NormalType
+    fun providesAddiRetrofit(@NormalType okHttpClient: OkHttpClient): Retrofit =
         Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)

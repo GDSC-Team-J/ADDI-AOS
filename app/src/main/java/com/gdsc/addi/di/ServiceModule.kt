@@ -1,6 +1,7 @@
 package com.gdsc.addi.di
 
 import com.gdsc.addi.data.service.AddiService
+import com.gdsc.addi.data.service.EmotionService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,6 +12,10 @@ import retrofit2.Retrofit
 @InstallIn(SingletonComponent::class)
 object ServiceModule {
     @Provides
-    fun providesService(retrofit: Retrofit): AddiService =
+    fun providesAddiService(@RetrofitModule.NormalType retrofit: Retrofit): AddiService =
         retrofit.create(AddiService::class.java)
+
+    @Provides
+    fun providesEmotionService(@EmotionModule.EmotionType retrofit: Retrofit): EmotionService =
+        retrofit.create(EmotionService::class.java)
 }

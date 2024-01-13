@@ -11,23 +11,24 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.gdsc.addi.R
 import com.gdsc.addi.ui.component.AddiButton
 import com.gdsc.addi.ui.theme.AddiDesignSystem
 import com.gdsc.addi.ui.theme.AddiTheme
 
 @Composable
-fun RecordDone(type: RecordType) {
+fun RecordDone(onClick: () -> Unit) {
     Column(
-        modifier = Modifier
-            .fillMaxSize(),
+        modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        RecordDoneTitle(type.doneTitle)
-        RecordDoneButton(type.doneButton)
+        RecordDoneTitle(stringResource(id = R.string.user_record_done_title))
+        RecordDoneButton(stringResource(id = R.string.user_record_done_button), onClick)
     }
 }
 
@@ -49,7 +50,7 @@ fun RecordDoneTitle(
 
 @Composable
 fun RecordDoneButton(
-    content: String
+    content: String, onClick: () -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -57,7 +58,7 @@ fun RecordDoneButton(
             .padding(horizontal = 16.dp)
     ) {
         AddiButton(
-            onClick = { /*TODO*/ },
+            onClick = onClick,
         ) {
             Text(text = content)
         }
@@ -69,6 +70,6 @@ fun RecordDoneButton(
 @Composable
 fun RecordDonePreview() {
     AddiTheme {
-        RecordDone(RecordType.USER)
+        //RecordDone(RecordType.USER)
     }
 }
