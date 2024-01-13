@@ -19,6 +19,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.gdsc.addi.R
 import com.gdsc.addi.ui.component.AddiButton
 import com.gdsc.addi.ui.component.RecordButton
@@ -40,7 +41,9 @@ fun RecordScreen(
         verticalArrangement = Arrangement.SpaceBetween,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+
         RecordTitle(title = questions.value.getOrNull(currentQuestionIndex.value) ?: "")
+
         RecordButton(onRecord = onRecord)
         Column {
             RecordNextButton(
@@ -72,7 +75,8 @@ fun RecordTitle(
             text = title,
             style = AddiDesignSystem.typography.title,
             color = AddiDesignSystem.colors.black,
-            modifier = Modifier.align(Alignment.CenterHorizontally)
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+            fontSize = 20.sp
         )
     }
 }

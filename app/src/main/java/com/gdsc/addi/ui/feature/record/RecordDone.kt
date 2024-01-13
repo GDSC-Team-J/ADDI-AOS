@@ -70,6 +70,6 @@ fun RecordDoneButton(
 @Composable
 fun RecordDonePreview() {
     AddiTheme {
-        //RecordDone(RecordType.USER)
+        //RecordDone(RecordType. USER)
     }
 }
