@@ -10,22 +10,32 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.gdsc.addi.R
 import com.gdsc.addi.ui.component.AddiButton
 import com.gdsc.addi.ui.theme.AddiDesignSystem
 import com.gdsc.addi.ui.theme.AddiTheme
+import com.gdsc.addi.ui.utils.UiEvent
 
 @Composable
 fun EnterScreen(
+    viewModel: EnterViewModel = hiltViewModel(),
     onClickGuardianEnter: () -> Unit,
-    onClickUserEnter: () -> Unit
+    onClickUserEnter: (UiEvent) -> Unit,
 ) {
+    LaunchedEffect(true) {
+        viewModel.uiEvent.collect { uiEvent ->
+            onClickUserEnter(uiEvent)
+        }
+    }
+
     Column(
         modifier = Modifier
             .fillMaxSize(),
@@ -35,7 +45,7 @@ fun EnterScreen(
         EnterLogo()
         EnterButtons(
             onClickGuardianEnter = onClickGuardianEnter,
-            onClickUserEnter = onClickUserEnter
+            onClickUserEnter = { viewModel.postUserSignup() }
         )
     }
 }
@@ -91,6 +101,6 @@ fun EnterButtons(
 @Composable
 fun EnterScreenPreview() {
     AddiTheme {
-        EnterScreen({}, {})
+        //EnterScreen({}, {})
     }
 }

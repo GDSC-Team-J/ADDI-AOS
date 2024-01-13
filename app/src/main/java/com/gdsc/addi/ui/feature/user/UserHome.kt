@@ -22,7 +22,9 @@ import com.gdsc.addi.ui.theme.AddiDesignSystem
 import com.gdsc.addi.ui.theme.AddiTheme
 
 @Composable
-fun UserHome() {
+fun UserHome(
+    onClickRecord: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxSize(),
@@ -37,7 +39,7 @@ fun UserHome() {
             Spacer(Modifier.size(58.dp))
             UserHomeLogo()
         }
-        UserHomeButtonSection()
+        UserHomeButton(onClickRecord)
     }
 }
 
@@ -61,14 +63,16 @@ fun UserHomeLogo() {
 
 
 @Composable
-fun UserHomeButtonSection() {
+fun UserHomeButton(
+    onClickRecord: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp)
     ) {
         AddiButton(
-            onClick = { /*TODO*/ },
+            onClick = onClickRecord,
         ) {
             Text(text = stringResource(id = R.string.user_home_button))
         }
@@ -78,8 +82,8 @@ fun UserHomeButtonSection() {
 
 @Preview(showBackground = true)
 @Composable
-fun UserHomeScreenPreview() {
+fun UserHomePreview() {
     AddiTheme {
-        UserHome()
+        UserHome({})
     }
 }

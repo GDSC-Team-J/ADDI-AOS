@@ -1,29 +1,26 @@
-package com.gdsc.addi.ui
+package com.gdsc.addi.ui.feature.record
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.gdsc.addi.ui.feature.splash.SplashScreen
-import com.gdsc.addi.ui.feature.user.UserHome
+import com.gdsc.addi.ui.feature.user.UserActivity
 import com.gdsc.addi.ui.theme.AddiTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SplashActivity : ComponentActivity() {
+class RecordDoneActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             AddiTheme {
-                SplashScreen(
-                    intent = ::goToMain
-                )
+                RecordDone(onClick = ::goToHome)
             }
         }
     }
 
-    private fun goToMain() {
-        startActivity(Intent(this, MainActivity::class.java))
+    private fun goToHome() {
+        startActivity(Intent(this, UserActivity::class.java))
         finish()
     }
 }

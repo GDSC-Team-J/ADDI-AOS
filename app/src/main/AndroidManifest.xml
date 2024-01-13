@@ -3,6 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
 
     <application
         android:name=".AddiApplication"
@@ -14,21 +19,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Addi"
+        android:usesCleartextTraffic="true"
         tools:targetApi="33">
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.feature.record.RecordDoneActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.GuardianActivity"
+            android:name=".ui.feature.guardian.GuardianHomeActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.UserActivity"
+            android:name=".ui.feature.record.RecordActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.SplashActivity"
+            android:name=".ui.feature.enter.MainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.feature.guardian.GuardianCodeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.feature.user.UserActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.feature.splash.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>

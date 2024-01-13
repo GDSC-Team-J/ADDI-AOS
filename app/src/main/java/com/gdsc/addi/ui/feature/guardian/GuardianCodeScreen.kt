@@ -14,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -23,16 +24,25 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.gdsc.addi.R
 import com.gdsc.addi.ui.component.AddiButton
 import com.gdsc.addi.ui.theme.AddiDesignSystem
 import com.gdsc.addi.ui.theme.AddiTheme
+import com.gdsc.addi.ui.utils.UiEvent
 
 /** Todo ime 설정하기 */
 @Composable
-fun GuardianCode(
-    onClickEnter: (String) -> Unit
+fun GuardianCodeScreen(
+    viewModel: GuardianCodeViewModel = hiltViewModel(),
+    onEvent: (UiEvent) -> Unit
 ) {
+    LaunchedEffect(true) {
+        viewModel.uiEvent.collect { uiEvent ->
+            onEvent(uiEvent)
+        }
+    }
+
     Column(
         modifier = Modifier
             .fillMaxSize(),
@@ -51,7 +61,7 @@ fun GuardianCode(
         }
         Column {
             GuardianCodeButton(
-                onClickEnter = { onClickEnter(textFieldValue.text) }
+                onClickEnter = { viewModel.postGuardianSignup(textFieldValue.text) }
             )
             Spacer(modifier = Modifier.size(40.dp))
         }
@@ -108,8 +118,8 @@ fun GuardianCodeButton(
 
 @Preview(showBackground = true)
 @Composable
-fun GuardianCodePreview() {
+fun GuardianCodeScreenPreview() {
     AddiTheme {
-        GuardianCode({})
+        //GuardianCode({})
     }
 }
